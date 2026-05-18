@@ -1,0 +1,117 @@
+# America Chaplains International Corp Inc. Website
+
+Static website for `https://acicorpinc.com`.
+
+## Structure
+
+```text
+index.html
+assets/styles.css
+assets/site.js
+assets/images/
+pages/
+deploy.sh
+README.md
+robots.txt
+sitemap.xml
+```
+
+## First setup on the VPS
+
+Choose a safe location for the Git repository, for example:
+
+```bash
+mkdir -p /opt/acicorp
+cd /opt/acicorp
+git clone YOUR_GITHUB_REPO_URL website
+cd website
+chmod +x deploy.sh
+```
+
+Replace `YOUR_GITHUB_REPO_URL` with your GitHub repository URL.
+
+The public Nginx web root remains:
+
+```bash
+/var/www/acicorp
+```
+
+Do not change DNS, SSL, Cloudflare, or Nginx configuration unless a special task requires it.
+
+## Deploy
+
+From the repository folder on the VPS:
+
+```bash
+cd /opt/acicorp/website
+sudo ./deploy.sh
+```
+
+The script will:
+
+1. Backup `/var/www/acicorp`
+2. Run `git pull --ff-only`
+3. Copy the latest files into `/var/www/acicorp`
+4. Set permissions
+5. Test Nginx
+6. Reload or restart Nginx if the test passes
+7. Show final status
+
+## Verify the site
+
+Run:
+
+```bash
+ls -la /var/www/acicorp
+curl -I http://127.0.0.1/ -H "Host: acicorpinc.com"
+curl -k -I https://127.0.0.1/ -H "Host: acicorpinc.com"
+curl -I https://acicorpinc.com
+```
+
+Expected result: HTTP `200` for the active site.
+
+If Cloudflare or the browser still shows an old page, purge Cloudflare cache and hard-refresh the browser.
+
+## Rollback
+
+Backups are created automatically in `/var/www/` with names like:
+
+```text
+/var/www/acicorp_backup_YYYY-MM-DD_HH-MM-SS
+```
+
+To rollback manually:
+
+```bash
+sudo rsync -a --delete /var/www/acicorp_backup_YYYY-MM-DD_HH-MM-SS/ /var/www/acicorp/
+sudo chown -R www-data:www-data /var/www/acicorp
+sudo chmod -R 755 /var/www/acicorp
+sudo nginx -t
+sudo systemctl reload nginx
+```
+
+Replace `YYYY-MM-DD_HH-MM-SS` with the real backup folder name.
+
+## Safe update workflow
+
+1. Edit files locally or in GitHub.
+2. Commit and push to GitHub.
+3. SSH into the VPS.
+4. Run:
+
+```bash
+cd /opt/acicorp/website
+sudo ./deploy.sh
+```
+
+## Contact placeholders
+
+Private email and private phone numbers must not be used as public organizational contacts.
+
+Current public contact block uses:
+
+- `Official email address coming soon.`
+- `+509 3348 9898`
+- `+509 3100 0024`
+
+Update this only when official professional channels are confirmed.
