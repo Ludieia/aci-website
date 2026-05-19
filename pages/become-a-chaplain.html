@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Become a Chaplain | America Chaplains International Corp Inc.</title>
-<link rel="stylesheet" href="/assets/styles.css?v=82">
+<link rel="stylesheet" href="/assets/styles.css?v=90">
 </head>
 <body>
 <header class="site-header">
@@ -33,54 +33,55 @@
 <p class="eyebrow">Chaplain Registration Plans</p>
 <h2>Choose the first step toward chaplaincy service.</h2>
 <div class="cards">
-<article class="card"><h3>Plan 1 — Registration</h3><p><strong>$300</strong></p><p>Initial chaplaincy registration for candidates entering the ACICORP Inc. review, orientation, and onboarding pathway.</p><a class="btn" href="#pre-registration">Begin Registration</a></article>
-<article class="card"><h3>Plan 2 — Annual Fee</h3><p><strong>$50</strong></p><p>Annual participation fee intended to support administrative follow-up, communication, coordination, and future ERPNext CRM tracking.</p><a class="btn" href="#pre-registration">Continue Application</a></article>
-<article class="card"><h3>ERPNext CRM Next Step</h3><p>After the short pre-registration form, candidates can continue in the ERPNext CRM portal for the complete application and follow-up.</p><a class="btn" href="https://crm.ludienet.com/app/home" target="_blank" rel="noopener">Open CRM Portal</a></article>
+<article class="card"><h3>Plan 1 — Registration</h3><p><strong>$300</strong></p><p>Initial chaplaincy registration for candidates entering the ACICORP Inc. review, orientation, and onboarding pathway.</p><a class="btn" href="#chaplain-form">Begin Registration</a></article>
+<article class="card"><h3>Plan 2 — Annual Fee</h3><p><strong>$50</strong></p><p>Annual participation fee intended to support administrative follow-up, communication, coordination, and ERPNext CRM tracking.</p><a class="btn" href="#chaplain-form">Continue Application</a></article>
+<article class="card"><h3>Ludie IA to ERPNext</h3><p>The website prepares the application and sends it to Ludie IA, which will route the validated request toward ERPNext.</p><a class="btn" href="https://crm.ludienet.com/app/home" target="_blank" rel="noopener">Open CRM Portal</a></article>
 </div>
 </div>
 </section>
-<section id="pre-registration" class="section">
-<div class="container split">
-<div>
-<p class="eyebrow">Pre-Registration Form</p>
-<h2>Start your chaplaincy application.</h2>
-<p>Complete this short pre-registration. The full application and follow-up will be managed through the ERPNext CRM portal.</p>
-<p><strong>Automatic response:</strong> after this first step, continue to the CRM portal to complete the full ACICORP Inc. application.</p>
+<section id="chaplain-form" class="section">
+<div class="container">
+<p class="eyebrow">Official Chaplain Pre-Application</p>
+<h2>Complete the first application step.</h2>
+<p>This public form is prepared to send the application request to Ludie IA for ERPNext / CRM processing. No ERPNext API key is exposed in the public website.</p>
+<form class="aci-form" data-ludie-form="chaplain_application">
+<div class="form-grid">
+<label>Full Name<input required type="text" name="full_name" autocomplete="name"></label>
+<label>First Name<input required type="text" name="first_name" autocomplete="given-name"></label>
+<label>Last Name<input required type="text" name="last_name" autocomplete="family-name"></label>
+<label>Date of Birth<input required type="date" name="date_of_birth"></label>
+<label>Place of Birth<input required type="text" name="place_of_birth"></label>
+<label>Phone<input required type="tel" name="phone" autocomplete="tel"></label>
+<label>WhatsApp<input type="tel" name="whatsapp"></label>
+<label>Email<input type="email" name="email" autocomplete="email"></label>
+<label>Address<input required type="text" name="address" autocomplete="street-address"></label>
+<label>Country<input required type="text" name="country" autocomplete="country-name"></label>
+<label>Department / State<input required type="text" name="department_state"></label>
+<label>City<input required type="text" name="city" autocomplete="address-level2"></label>
+<label>Document Number<input required type="text" name="document_number"></label>
+<label>Type of Chaplain<select required name="type_of_chaplain"><option value="">Select type</option><option>Community Chaplain</option><option>Prison Chaplain</option><option>Police Chaplain</option><option>Military Chaplain</option><option>School / University Chaplain</option><option>Hospital / Health Chaplain</option><option>Youth Chaplain</option><option>Humanitarian Chaplain</option></select></label>
+<label>Training Level<select required name="training_level"><option value="">Select level</option><option>Beginner / Orientation</option><option>Intermediate</option><option>Advanced</option><option>Already trained chaplain</option></select></label>
+<label>Selected Plan<select required name="selected_plan"><option value="">Select plan</option><option>Plan 1 — Registration $300</option><option>Plan 2 — Annual Fee $50</option></select></label>
+<label>Emergency Contact Name<input required type="text" name="emergency_contact_name"></label>
+<label>Emergency Contact Phone<input required type="tel" name="emergency_contact_phone"></label>
 </div>
-<form class="contact-box" action="#crm-response" method="get">
-<label>Full Name<br><input required type="text" name="name" style="width:100%;padding:12px;margin:8px 0 14px;border:1px solid #cbd5e1;border-radius:10px;"></label>
-<label>Phone / WhatsApp<br><input required type="text" name="phone" style="width:100%;padding:12px;margin:8px 0 14px;border:1px solid #cbd5e1;border-radius:10px;"></label>
-<label>Email<br><input type="email" name="email" style="width:100%;padding:12px;margin:8px 0 14px;border:1px solid #cbd5e1;border-radius:10px;"></label>
-<label>Preferred Plan<br><select required name="plan" style="width:100%;padding:12px;margin:8px 0 14px;border:1px solid #cbd5e1;border-radius:10px;"><option value="">Select a plan</option><option>Plan 1 — Registration $300</option><option>Plan 2 — Annual Fee $50</option></select></label>
-<label>Chaplaincy Interest<br><select required name="interest" style="width:100%;padding:12px;margin:8px 0 14px;border:1px solid #cbd5e1;border-radius:10px;"><option value="">Select pathway</option><option>Community Chaplain</option><option>Prison Chaplain</option><option>School / University Chaplain</option><option>Hospital / Health Chaplain</option><option>Police / Institutional Chaplain</option><option>Humanitarian Chaplain</option></select></label>
-<button class="btn" type="submit">Submit Pre-Registration</button>
+<label>Motivation / Message<textarea required name="motivation_message" rows="6"></textarea></label>
+<label class="checkbox-line"><input required type="checkbox" name="consent" value="yes"> I confirm that the information provided is accurate and I consent to ACICORP Inc. using this information for chaplaincy registration and ERPNext / CRM follow-up.</label>
+<button class="btn" type="submit">Submit to Ludie IA / ERPNext</button>
+<div class="form-status" aria-live="polite"></div>
 </form>
 </div>
 </section>
-<section id="crm-response" class="section alt">
+<section class="section alt">
 <div class="container centered narrow">
-<p class="eyebrow">Automatic Response</p>
-<h2>Thank you for starting your chaplaincy registration.</h2>
-<p>Your next step is to open the ERPNext CRM portal and complete the full ACICORP Inc. application form.</p>
-<a class="btn" href="https://crm.ludienet.com/app/home" target="_blank" rel="noopener">Continue in ERPNext CRM</a>
+<p class="eyebrow">After Submission</p>
+<h2>Automatic response and CRM follow-up.</h2>
+<p>After submission, Ludie IA receives the request as a website form submission with target system ERPNext. The candidate will then be guided toward the complete CRM application workflow.</p>
+<a class="btn" href="https://crm.ludienet.com/app/home" target="_blank" rel="noopener">Open ERPNext CRM</a>
 <a class="btn btn-secondary" href="/pages/contact.html">Request Assistance</a>
 </div>
 </section>
-<section class="section alt">
-<div class="container">
-<p class="eyebrow">Chaplaincy Pathways</p>
-<h2>Fields of chaplaincy service</h2>
-<div class="cards">
-<article class="card"><h3>Police Chaplains</h3><p>Moral and spiritual support for law enforcement personnel, families, and community relations.</p></article>
-<article class="card"><h3>Prison Chaplains</h3><p>Human-centered accompaniment for prisoners, families, and rehabilitation-oriented support.</p></article>
-<article class="card"><h3>Military Chaplains</h3><p>Pastoral care and ethical support for service members and families.</p></article>
-<article class="card"><h3>Community Chaplains</h3><p>Support for families, displaced communities, vulnerable people, and humanitarian response.</p></article>
-<article class="card"><h3>School & University Chaplains</h3><p>Support for students, educators, values formation, counseling, and youth leadership.</p></article>
-<article class="card"><h3>Hospital & Health Chaplains</h3><p>Compassionate support for patients, families, and caregivers.</p></article>
-</div>
-</div>
-</section>
 <footer class="site-footer"><div class="container"><p><strong>America Chaplains International Corp Inc.</strong></p><p>Restore dignity. Rebuild hope. Stand with Haiti.</p></div></footer>
-<script src="/assets/site.js?v=82"></script>
+<script src="/assets/site.js?v=90"></script>
 </body>
 </html>
