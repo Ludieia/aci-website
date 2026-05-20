@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CRM / ERP Registration | America Chaplains International Corp Inc.</title>
-<link rel="stylesheet" href="/assets/styles.css?v=117">
+<link rel="stylesheet" href="/assets/styles.css?v=118">
 <style>
 .hidden-chaplain-form{display:none;}
 .hidden-chaplain-form.is-visible{display:block;}
@@ -31,7 +31,7 @@
 <p class="eyebrow">Registration & Structured Engagement</p>
 <h2>Join the mission with clarity, dignity, and responsibility.</h2>
 <p>America Chaplains International Corp Inc. provides a structured registration pathway for volunteers, chaplains, partners, local coordinators, donors, and community supporters who wish to engage with the mission in a serious and responsible way.</p>
-<a class="btn" href="#chaplain-form" id="show-chaplain-form">Become a Chaplain</a>
+<a class="btn show-chaplain-form" href="#chaplain-form">Become a Chaplain</a>
 <p class="eyebrow">Institutional Registration</p>
 <h2>Serving with dignity, compassion, and responsibility.</h2>
 <p>ACICORP Inc. continues to strengthen its organizational coordination, communication systems, and professional engagement framework to support responsible collaboration and mission readiness.</p>
@@ -130,8 +130,8 @@
 <section class="section alt">
 <div class="container centered narrow">
 <h2>Join the mission through structured engagement.</h2>
-<p>Please send your name, role of interest, location, and short request to begin registration support and institutional follow-up.</p>
-<a class="btn" href="mailto:info@acicorpinc.com?subject=Join%20the%20Mission">Join the Mission</a>
+<p>To begin your registration, please open the secure chaplain application form and submit your information for institutional review.</p>
+<a class="btn show-chaplain-form" href="#chaplain-form">Open Application Form</a>
 </div>
 </section>
 <footer class="site-footer">
@@ -141,17 +141,19 @@
 <p>Restore dignity. Rebuild hope. Stand with Haiti.</p>
 </div>
 </footer>
-<script src="/assets/site.js?v=117"></script>
+<script src="/assets/site.js?v=118"></script>
 <script src="/assets/acicorp-forms.js?v=103"></script>
 <script>
 (function(){
-  var button = document.getElementById('show-chaplain-form');
+  var buttons = document.querySelectorAll('.show-chaplain-form');
   var formSection = document.getElementById('chaplain-form');
-  if (!button || !formSection) return;
-  button.addEventListener('click', function(event){
-    event.preventDefault();
-    formSection.classList.add('is-visible');
-    formSection.scrollIntoView({behavior:'smooth', block:'start'});
+  if (!buttons.length || !formSection) return;
+  buttons.forEach(function(button){
+    button.addEventListener('click', function(event){
+      event.preventDefault();
+      formSection.classList.add('is-visible');
+      formSection.scrollIntoView({behavior:'smooth', block:'start'});
+    });
   });
 })();
 </script>
