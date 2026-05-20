@@ -4,10 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CRM / ERP Registration | America Chaplains International Corp Inc.</title>
-<link rel="stylesheet" href="/assets/styles.css?v=119">
+<link rel="stylesheet" href="/assets/styles.css?v=120">
 <style>
 .hidden-chaplain-form{display:none;}
 .hidden-chaplain-form.is-visible{display:block;}
+.ai-answer-box{margin-top:18px;padding:18px;border-radius:18px;background:#ffffff;border:1px solid rgba(15,23,42,.12);box-shadow:0 12px 28px rgba(15,23,42,.08);text-align:left;}
+.ai-answer-box[hidden]{display:none;}
+.ai-question-form textarea{width:100%;min-height:120px;}
+.ai-status{font-weight:700;margin-top:12px;}
 </style>
 </head>
 <body>
@@ -120,15 +124,18 @@
 </section>
 <section class="section" id="ai-support">
 <div class="container centered narrow">
-<p class="eyebrow">AI Assistance Center</p>
-<h2>Need answers before applying?</h2>
-<p>Our intelligent assistance system helps visitors better understand registration requirements, chaplain engagement, partnership orientation, volunteer opportunities, and institutional procedures before submitting an application.</p>
-<div class="cards">
-<article class="card"><h3>Registration Questions</h3><p>Understand the registration process and required information.</p></article>
-<article class="card"><h3>Chaplain Orientation</h3><p>Learn about chaplain engagement, ethics, and mission expectations.</p></article>
-<article class="card"><h3>Partnership Guidance</h3><p>Receive guidance regarding collaboration and institutional partnerships.</p></article>
+<p class="eyebrow">AI Question & Answer Assistant</p>
+<h2>Ask a question before applying.</h2>
+<p>Use the online assistant to ask questions about registration, chaplain engagement, partnership orientation, volunteer opportunities, and institutional procedures.</p>
+<form class="ai-question-form" id="ai-question-form">
+<label>Your Question<textarea id="ai-question" required placeholder="Example: What do I need to become a chaplain with ACICORP Inc.?"></textarea></label>
+<button class="btn" type="submit">Ask the Assistant</button>
+<p class="ai-status" id="ai-status" aria-live="polite"></p>
+</form>
+<div class="ai-answer-box" id="ai-answer-box" hidden>
+<h3>Assistant Response</h3>
+<p id="ai-answer-text"></p>
 </div>
-<a class="btn" href="/pages/contact-options.html">Ask a Question</a>
 </div>
 </section>
 <section class="section alt">
@@ -145,18 +152,59 @@
 <p>Restore dignity. Rebuild hope. Stand with Haiti.</p>
 </div>
 </footer>
-<script src="/assets/site.js?v=119"></script>
+<script src="/assets/site.js?v=120"></script>
 <script src="/assets/acicorp-forms.js?v=103"></script>
 <script>
 (function(){
   var buttons = document.querySelectorAll('.show-chaplain-form');
   var formSection = document.getElementById('chaplain-form');
-  if (!buttons.length || !formSection) return;
-  buttons.forEach(function(button){
-    button.addEventListener('click', function(event){
-      event.preventDefault();
-      formSection.classList.add('is-visible');
-      formSection.scrollIntoView({behavior:'smooth', block:'start'});
+  if (buttons.length && formSection) {
+    buttons.forEach(function(button){
+      button.addEventListener('click', function(event){
+        event.preventDefault();
+        formSection.classList.add('is-visible');
+        formSection.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+  }
+
+  var aiForm = document.getElementById('ai-question-form');
+  var questionField = document.getElementById('ai-question');
+  var status = document.getElementById('ai-status');
+  var answerBox = document.getElementById('ai-answer-box');
+  var answerText = document.getElementById('ai-answer-text');
+  if (!aiForm) return;
+
+  aiForm.addEventListener('submit', function(event){
+    event.preventDefault();
+    var question = (questionField.value || '').trim();
+    if (!question) return;
+    status.textContent = 'Sending your question...';
+    answerBox.hidden = true;
+
+    fetch('http://178.156.210.71:3000/agent-task', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        agent_name: 'ACICORP Website Assistant',
+        task_type: 'website_question_answer',
+        prompt: question,
+        target_system: 'ACICORP Public Website',
+        risk_level: 'low',
+        requires_human_validation: false
+      })
+    })
+    .then(function(response){ return response.json().catch(function(){ return {}; }); })
+    .then(function(data){
+      var reply = data.answer || data.response || data.message || data.result || 'Thank you. Your question has been received. ACICORP Inc. will provide appropriate follow-up if a direct response is required.';
+      answerText.textContent = reply;
+      answerBox.hidden = false;
+      status.textContent = 'Response received.';
+    })
+    .catch(function(){
+      answerText.textContent = 'Thank you. Your question has been received. If the assistant is temporarily unavailable, please contact ACICORP Inc. through the official contact page.';
+      answerBox.hidden = false;
+      status.textContent = 'Assistant temporarily unavailable.';
     });
   });
 })();
