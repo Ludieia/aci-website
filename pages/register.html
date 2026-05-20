@@ -4,7 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CRM / ERP Registration | America Chaplains International Corp Inc.</title>
-<link rel="stylesheet" href="/assets/styles.css?v=112">
+<link rel="stylesheet" href="/assets/styles.css?v=117">
+<style>
+.hidden-chaplain-form{display:none;}
+.hidden-chaplain-form.is-visible{display:block;}
+</style>
 </head>
 <body>
 <header class="site-header">
@@ -27,7 +31,7 @@
 <p class="eyebrow">Registration & Structured Engagement</p>
 <h2>Join the mission with clarity, dignity, and responsibility.</h2>
 <p>America Chaplains International Corp Inc. provides a structured registration pathway for volunteers, chaplains, partners, local coordinators, donors, and community supporters who wish to engage with the mission in a serious and responsible way.</p>
-<a class="btn" href="#chaplain-form">Become a Chaplain</a>
+<a class="btn" href="#chaplain-form" id="show-chaplain-form">Become a Chaplain</a>
 <p class="eyebrow">Institutional Registration</p>
 <h2>Serving with dignity, compassion, and responsibility.</h2>
 <p>ACICORP Inc. continues to strengthen its organizational coordination, communication systems, and professional engagement framework to support responsible collaboration and mission readiness.</p>
@@ -55,7 +59,7 @@
 </div>
 </div>
 </section>
-<section class="section" id="chaplain-form">
+<section class="section hidden-chaplain-form" id="chaplain-form">
 <div class="container split">
 <div>
 <p class="eyebrow">Secure Application</p>
@@ -137,7 +141,19 @@
 <p>Restore dignity. Rebuild hope. Stand with Haiti.</p>
 </div>
 </footer>
-<script src="/assets/site.js?v=112"></script>
+<script src="/assets/site.js?v=117"></script>
 <script src="/assets/acicorp-forms.js?v=103"></script>
+<script>
+(function(){
+  var button = document.getElementById('show-chaplain-form');
+  var formSection = document.getElementById('chaplain-form');
+  if (!button || !formSection) return;
+  button.addEventListener('click', function(event){
+    event.preventDefault();
+    formSection.classList.add('is-visible');
+    formSection.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+})();
+</script>
 </body>
 </html>
