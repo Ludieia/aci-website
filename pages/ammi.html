@@ -4,7 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AMMI | America Chaplains International Corp Inc.</title>
-<link rel="stylesheet" href="/assets/styles.css?v=122">
+<link rel="stylesheet" href="/assets/styles.css?v=123">
+<style>
+.ammi-ai-shell{max-width:920px;margin:0 auto;text-align:left;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:28px;box-shadow:0 18px 45px rgba(15,23,42,.10);overflow:hidden;}
+.ammi-ai-header{padding:28px;background:linear-gradient(135deg,#0f172a,#1d4ed8);color:#fff;}
+.ammi-ai-header .eyebrow{color:rgba(255,255,255,.78);}
+.ammi-ai-header h2{color:#fff;margin:8px 0 10px;}
+.ammi-ai-header p{color:rgba(255,255,255,.9);}
+.ammi-ai-body{padding:26px;}
+.ammi-ai-form textarea{width:100%;min-height:130px;resize:vertical;}
+.ammi-ai-answer{margin-top:18px;padding:18px;border-radius:18px;background:#f8fafc;border:1px solid rgba(15,23,42,.10);}
+.ammi-ai-answer[hidden]{display:none;}
+.ammi-ai-status{font-weight:700;margin-top:12px;}
+.quick-questions{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0;}
+.quick-question{border:1px solid rgba(15,23,42,.16);background:#fff;border-radius:999px;padding:9px 13px;cursor:pointer;font-weight:700;}
+</style>
 </head>
 <body>
 <header class="site-header">
@@ -47,30 +61,12 @@
 <p class="eyebrow">What AMMI Represents</p>
 <h2>Building humanitarian engagement through dignity, responsibility, and community action.</h2>
 <div class="cards">
-<article class="card">
-<h3>Human Dignity</h3>
-<p>Every human being deserves respect, compassion, protection, and meaningful support regardless of circumstance or vulnerability.</p>
-</article>
-<article class="card">
-<h3>Community Recovery</h3>
-<p>AMMI supports initiatives that strengthen resilience, encourage local participation, and help communities rebuild hope through practical action.</p>
-</article>
-<article class="card">
-<h3>Peacebuilding</h3>
-<p>We encourage responsible dialogue, social cohesion, and constructive engagement that contributes to stability and peaceful community development.</p>
-</article>
-<article class="card">
-<h3>Youth Leadership</h3>
-<p>Young people are not only recipients of support. They are leaders, builders, and carriers of Haiti’s future.</p>
-</article>
-<article class="card">
-<h3>Humanitarian Responsibility</h3>
-<p>Humanitarian service must combine compassion with professionalism, ethical responsibility, accountability, and organized coordination.</p>
-</article>
-<article class="card">
-<h3>National Renewal</h3>
-<p>AMMI supports a vision of Haiti rooted in dignity, responsibility, education, resilience, and long-term community strengthening.</p>
-</article>
+<article class="card"><h3>Human Dignity</h3><p>Every human being deserves respect, compassion, protection, and meaningful support regardless of circumstance or vulnerability.</p></article>
+<article class="card"><h3>Community Recovery</h3><p>AMMI supports initiatives that strengthen resilience, encourage local participation, and help communities rebuild hope through practical action.</p></article>
+<article class="card"><h3>Peacebuilding</h3><p>We encourage responsible dialogue, social cohesion, and constructive engagement that contributes to stability and peaceful community development.</p></article>
+<article class="card"><h3>Youth Leadership</h3><p>Young people are not only recipients of support. They are leaders, builders, and carriers of Haiti’s future.</p></article>
+<article class="card"><h3>Humanitarian Responsibility</h3><p>Humanitarian service must combine compassion with professionalism, ethical responsibility, accountability, and organized coordination.</p></article>
+<article class="card"><h3>National Renewal</h3><p>AMMI supports a vision of Haiti rooted in dignity, responsibility, education, resilience, and long-term community strengthening.</p></article>
 </div>
 </div>
 </section>
@@ -98,12 +94,32 @@
 <a class="btn btn-secondary" href="/pages/contact.html">Contact ACICORP Inc.</a>
 </div>
 </section>
-<section class="section">
-<div class="container centered narrow">
-<p class="eyebrow">Ask AMMI</p>
-<h2>Need guidance before joining the mission?</h2>
-<p>Our assistance center helps visitors understand volunteer engagement, registration processes, humanitarian initiatives, partnership opportunities, chaplaincy orientation, and community support programs.</p>
-<a class="btn" href="/pages/register.html">Ask AMMI</a>
+<section class="section" id="ask-ammi">
+<div class="container">
+<div class="ammi-ai-shell">
+<div class="ammi-ai-header">
+<p class="eyebrow">Ask AMMI AI</p>
+<h2>Ask a question about AMMI, Haiti, partnership, or humanitarian engagement.</h2>
+<p>The AMMI AI Assistant helps visitors understand the mission, volunteer engagement, support opportunities, community recovery, youth initiatives, chaplaincy orientation, and partnership pathways.</p>
+</div>
+<div class="ammi-ai-body">
+<div class="quick-questions" aria-label="Suggested questions">
+<button class="quick-question" type="button">What is AMMI?</button>
+<button class="quick-question" type="button">How can I support AMMI?</button>
+<button class="quick-question" type="button">How can my organization partner with ACICORP?</button>
+<button class="quick-question" type="button">How can I volunteer?</button>
+</div>
+<form class="ammi-ai-form" id="ammi-ai-form">
+<label>Your Question<textarea id="ammi-ai-question" required placeholder="Example: How can I partner with AMMI to support community recovery in Haiti?"></textarea></label>
+<button class="btn" type="submit">Ask AMMI AI</button>
+<p class="ammi-ai-status" id="ammi-ai-status" aria-live="polite"></p>
+</form>
+<div class="ammi-ai-answer" id="ammi-ai-answer" hidden>
+<h3>AMMI AI Response</h3>
+<p id="ammi-ai-answer-text"></p>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section class="section alt">
@@ -120,6 +136,57 @@
 <p>Restore dignity. Rebuild hope. Stand with Haiti.</p>
 </div>
 </footer>
-<script src="/assets/site.js?v=122"></script>
+<script src="/assets/site.js?v=123"></script>
+<script>
+(function(){
+  var form = document.getElementById('ammi-ai-form');
+  var questionField = document.getElementById('ammi-ai-question');
+  var status = document.getElementById('ammi-ai-status');
+  var answerBox = document.getElementById('ammi-ai-answer');
+  var answerText = document.getElementById('ammi-ai-answer-text');
+  var quickButtons = document.querySelectorAll('.quick-question');
+
+  quickButtons.forEach(function(button){
+    button.addEventListener('click', function(){
+      questionField.value = button.textContent;
+      questionField.focus();
+    });
+  });
+
+  if (!form) return;
+  form.addEventListener('submit', function(event){
+    event.preventDefault();
+    var question = (questionField.value || '').trim();
+    if (!question) return;
+    status.textContent = 'Sending your question...';
+    answerBox.hidden = true;
+
+    fetch('http://178.156.210.71:3000/agent-task', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        agent_name: 'AMMI Website Assistant',
+        task_type: 'website_question_answer',
+        prompt: question,
+        target_system: 'ACICORP AMMI Public Website',
+        risk_level: 'low',
+        requires_human_validation: false
+      })
+    })
+    .then(function(response){ return response.json().catch(function(){ return {}; }); })
+    .then(function(data){
+      var reply = data.answer || data.response || data.message || data.result || 'Thank you. Your question has been received. AMMI will provide appropriate guidance or follow-up if needed.';
+      answerText.textContent = reply;
+      answerBox.hidden = false;
+      status.textContent = 'Response received.';
+    })
+    .catch(function(){
+      answerText.textContent = 'Thank you. Your question has been received. If the assistant is temporarily unavailable, please contact ACICORP Inc. through the official contact page.';
+      answerBox.hidden = false;
+      status.textContent = 'Assistant temporarily unavailable.';
+    });
+  });
+})();
+</script>
 </body>
 </html>
