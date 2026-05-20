@@ -57,6 +57,10 @@
     return missing;
   }
 
+  function buildPrompt(formName, formData, transactionId, traceId) {
+    return 'Process ACICORP public website form submission. Form: ' + formName + '. Transaction ID: ' + transactionId + '. Trace ID: ' + traceId + '. Payload JSON: ' + JSON.stringify(formData);
+  }
+
   async function submitForm(form) {
     var formName = form.getAttribute('data-acicorp-form') || 'unknown';
     var missing = validateRequired(form);
@@ -71,7 +75,12 @@
 
     var transactionId = makeTransactionId(formName);
     var traceId = getTraceId();
+    var formData = readFormData(form);
     var payload = {
+      agent_name: 'ACICORP Intake Agent',
+      task_type: 'form_submission',
+      prompt: buildPrompt(formName, formData, transactionId, traceId),
+      target_system: 'ERPNext',
       source: 'acicorpinc.com',
       source_channel: 'website',
       form_name: formName,
@@ -79,7 +88,7 @@
       transaction_id: transactionId,
       trace_id: traceId,
       timestamp_utc: new Date().toISOString(),
-      payload: readFormData(form)
+      payload: formData
     };
 
     console.info('[ACICORP Form]', 'submit_attempt', { form_name: formName, transaction_id: transactionId, trace_id: traceId });
