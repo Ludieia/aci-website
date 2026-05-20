@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Donate | America Chaplains International Corp Inc.</title>
-<link rel="stylesheet" href="/assets/styles.css?v=92">
+<link rel="stylesheet" href="/assets/styles.css?v=103">
 </head>
 <body>
 <header class="site-header">
@@ -22,7 +22,7 @@
 <section class="hero internal-hero">
 <div class="container">
 <p class="eyebrow">Support Our Mission</p>
-<h2>Choose a theme, then select a payment option.</h2>
+<h2>Choose a theme, then confirm your donation securely.</h2>
 <p>Your contribution helps support education, humanitarian response, displaced families, youth initiatives, prison support, AMMI, registrations, and community recovery actions.</p>
 </div>
 </section>
@@ -31,12 +31,12 @@
 <p class="eyebrow">Donation Themes</p>
 <h2>Select the area you want to support.</h2>
 <div class="cards">
-<article class="card"><h3>Education Support</h3><p>Support children, schools, educational materials, meals, and learning continuity initiatives.</p><a class="btn" href="#payment-options">Pay for Education Support</a></article>
-<article class="card"><h3>Humanitarian Response</h3><p>Support displaced families, migrants, vulnerable communities, and urgent recovery efforts.</p><a class="btn" href="#payment-options">Pay for Humanitarian Response</a></article>
-<article class="card"><h3>Displaced Families</h3><p>Help families facing instability, loss of normal community support, and urgent hardship.</p><a class="btn" href="#payment-options">Pay for Displaced Families</a></article>
-<article class="card"><h3>Prison Support</h3><p>Support dignity-centered accompaniment for vulnerable prisoners and prison outreach.</p><a class="btn" href="#payment-options">Pay for Prison Support</a></article>
-<article class="card"><h3>Youth & Peacebuilding</h3><p>Invest in youth leadership, civic responsibility, values formation, and peacebuilding.</p><a class="btn" href="#payment-options">Pay for Youth Programs</a></article>
-<article class="card"><h3>AMMI / Community Recovery</h3><p>Support Ayiti Merite Miyò, cooperative development, and community recovery initiatives.</p><a class="btn" href="#payment-options">Pay for Community Recovery</a></article>
+<article class="card"><h3>Education Support</h3><p>Support children, schools, educational materials, meals, and learning continuity initiatives.</p><a class="btn" href="#donation-confirmation">Confirm Education Donation</a></article>
+<article class="card"><h3>Humanitarian Response</h3><p>Support displaced families, migrants, vulnerable communities, and urgent recovery efforts.</p><a class="btn" href="#donation-confirmation">Confirm Humanitarian Donation</a></article>
+<article class="card"><h3>Displaced Families</h3><p>Help families facing instability, loss of normal community support, and urgent hardship.</p><a class="btn" href="#donation-confirmation">Confirm Family Support</a></article>
+<article class="card"><h3>Prison Support</h3><p>Support dignity-centered accompaniment for vulnerable prisoners and prison outreach.</p><a class="btn" href="#donation-confirmation">Confirm Prison Support</a></article>
+<article class="card"><h3>Youth & Peacebuilding</h3><p>Invest in youth leadership, civic responsibility, values formation, and peacebuilding.</p><a class="btn" href="#donation-confirmation">Confirm Youth Donation</a></article>
+<article class="card"><h3>AMMI / Community Recovery</h3><p>Support Ayiti Merite Miyò, cooperative development, and community recovery initiatives.</p><a class="btn" href="#donation-confirmation">Confirm Recovery Donation</a></article>
 </div>
 </div>
 </section>
@@ -44,21 +44,82 @@
 <div class="container">
 <p class="eyebrow">Payment Information</p>
 <h2>Official payment options</h2>
-<p>After choosing your donation theme, use one of the payment options below. Please include the theme in the payment note when possible.</p>
 <div class="cards">
-<article class="card"><h3>MonCash</h3><p><strong>Number:</strong><br>38105773</p><p><strong>Note example:</strong><br>Education Support / Humanitarian Response / AMMI</p><a class="btn" href="tel:*202*38105773%23">Open MonCash Dial</a></article>
-<article class="card"><h3>NatCash</h3><p><strong>Number:</strong><br>320496</p><p><strong>Note example:</strong><br>Donation theme + donor name</p><a class="btn" href="tel:*202*320496%23">Open NatCash Dial</a></article>
-<article class="card"><h3>Bank Transfer</h3><p><strong>Bank:</strong> Sogebank SA<br><strong>Account Number:</strong> 2116003597<br><strong>Account Name:</strong> Ludienet Bureau de Transfert<br><strong>Swift Code:</strong> SOGHHTPXXX</p><p><strong>Purpose:</strong> Donation theme selected above.</p></article>
+<article class="card"><h3>MonCash</h3><p><strong>Number:</strong><br>38105773</p></article>
+<article class="card"><h3>NatCash</h3><p><strong>Number:</strong><br>320496</p></article>
+<article class="card"><h3>Bank Transfer</h3><p><strong>Bank:</strong> Sogebank SA<br><strong>Account Number:</strong> 2116003597<br><strong>Account Name:</strong> Ludienet Bureau de Transfert<br><strong>Swift Code:</strong> SOGHHTPXXX</p></article>
 </div>
-<p>Please indicate the purpose of your payment when possible: education support, humanitarian response, displaced families, prison support, youth programs, AMMI, or community recovery.</p>
 </div>
 </section>
-<section class="section alt">
-<div class="container centered narrow">
-<p class="eyebrow">After Payment</p>
-<h2>Send your payment confirmation.</h2>
-<p>After payment, please contact ACICORP Inc. with your name, amount, payment method, transaction reference, and selected donation theme.</p>
-<a class="btn" href="/pages/contact.html">Send Confirmation</a>
+<section class="section alt" id="donation-confirmation">
+<div class="container split">
+<div>
+<p class="eyebrow">Secure Donation Confirmation</p>
+<h2>Confirm your donation.</h2>
+<p>This form securely sends your donation confirmation to Ludie IA, which validates and routes the information to ERPNext / CRM Ludienet.</p>
+<div class="contact-box">
+<p><strong>No payment is validated automatically.</strong></p>
+<p>Finance review remains required before verification.</p>
+</div>
+</div>
+<form class="acicorp-form" data-acicorp-form="donation_confirmation" novalidate>
+<h3>Donation Confirmation</h3>
+<label>Donor Full Name *<input name="donor_full_name" data-label="Donor Full Name" type="text" required></label>
+<div class="form-grid-two">
+<label>Email<input name="email" type="email"></label>
+<label>Phone / WhatsApp *<input name="phone" data-label="Phone" type="tel" required></label>
+</div>
+<div class="form-grid-two">
+<label>Country<input name="country" type="text"></label>
+<label>City<input name="city" type="text"></label>
+</div>
+<label>Donation Theme *
+<select name="donation_theme" data-label="Donation Theme" required>
+<option value="">Select one</option>
+<option>Education Support</option>
+<option>Humanitarian Response</option>
+<option>Displaced Families</option>
+<option>Prison Support</option>
+<option>Youth & Peacebuilding</option>
+<option>AMMI / Community Recovery</option>
+<option>Chaplaincy Programs</option>
+<option>General Donation</option>
+</select>
+</label>
+<div class="form-grid-two">
+<label>Amount *<input name="amount" data-label="Amount" type="number" min="1" step="0.01" required></label>
+<label>Currency *
+<select name="currency" data-label="Currency" required>
+<option value="">Select one</option>
+<option>USD</option>
+<option>HTG</option>
+<option>DOP</option>
+<option>EUR</option>
+</select>
+</label>
+</div>
+<label>Payment Method *
+<select name="payment_method" data-label="Payment Method" required>
+<option value="">Select one</option>
+<option>MonCash</option>
+<option>NatCash</option>
+<option>Bank Transfer</option>
+<option>Cash</option>
+<option>Zelle</option>
+<option>CashApp</option>
+<option>Credit Card</option>
+<option>Other</option>
+</select>
+</label>
+<label>Transaction Reference *<input name="transaction_reference" data-label="Transaction Reference" type="text" required></label>
+<label>Payment Date *<input name="payment_date" data-label="Payment Date" type="date" required></label>
+<label>Donation Note<textarea name="donation_note" rows="4"></textarea></label>
+<label class="checkbox-line"><input name="consent" data-label="Consent" type="checkbox" value="yes" required> I confirm that the information provided is accurate.</label>
+<input type="hidden" name="requested_object" value="ACICORP Donation">
+<input type="hidden" name="initial_status" value="Submitted">
+<button class="btn" type="submit">Confirm My Donation</button>
+<p class="form-status" data-form-status aria-live="polite"></p>
+</form>
 </div>
 </section>
 <footer class="site-footer">
@@ -67,6 +128,7 @@
 <p>Restore dignity. Rebuild hope. Stand with Haiti.</p>
 </div>
 </footer>
-<script src="/assets/site.js?v=92"></script>
+<script src="/assets/site.js?v=103"></script>
+<script src="/assets/acicorp-forms.js?v=103"></script>
 </body>
 </html>
