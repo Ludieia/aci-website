@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact | America Chaplains International Corp Inc.</title>
-<link rel="stylesheet" href="/assets/styles.css?v=82">
+<link rel="stylesheet" href="/assets/styles.css?v=103">
 </head>
 <body>
 <header class="site-header">
@@ -40,17 +40,53 @@
 <p>15 Rue Clermant, Bois Verna, Port-au-Prince, Haiti</p>
 <p><strong>Website:</strong> <a href="https://acicorpinc.com">acicorpinc.com</a></p>
 <p><strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=61584756204499" target="_blank" rel="noopener">Official Facebook Page</a></p>
-<p><strong>Registration, partnership, and donation requests:</strong> Please contact the official desk by email or phone for confirmation and follow-up.</p>
+<p><strong>Registration, partnership, and donation requests:</strong> Use the secure form below for traceable follow-up.</p>
 </div>
 </div>
 </section>
-<section class="section alt">
-<div class="container centered narrow">
-<p class="eyebrow">Direct Contact</p>
-<h2>Restore dignity. Rebuild hope. Stand with Haiti.</h2>
-<p>ACICORP Inc. welcomes responsible partnerships, volunteers, institutions, humanitarian collaborators, and supporters committed to dignified service and long-term community impact.</p>
-<a class="btn" href="mailto:info@acicorpinc.com">Email ACICORP Inc.</a>
-<a class="btn btn-secondary" href="https://www.facebook.com/profile.php?id=61584756204499" target="_blank" rel="noopener">Follow on Facebook</a>
+<section class="section alt" id="contact-form">
+<div class="container split">
+<div>
+<p class="eyebrow">Secure CRM Intake</p>
+<h2>Send a traceable message.</h2>
+<p>This form sends your request to Ludie IA, then routes it to CRM Ludienet as a Lead, Communication Log, or Follow-up Task according to the review rules.</p>
+<div class="contact-box">
+<p><strong>No ERPNext key is exposed on this website.</strong></p>
+<p>Human follow-up remains required before critical action.</p>
+</div>
+</div>
+<form class="acicorp-form" data-acicorp-form="contact_request" novalidate>
+<h3>Contact Form</h3>
+<label>Full Name *<input name="full_name" data-label="Full Name" type="text" required></label>
+<div class="form-grid-two">
+<label>Email *<input name="email" data-label="Email" type="email" required></label>
+<label>Phone / WhatsApp<input name="phone" type="tel"></label>
+</div>
+<div class="form-grid-two">
+<label>Country<input name="country" type="text"></label>
+<label>City<input name="city" type="text"></label>
+</div>
+<label>Request Type *
+<select name="request_type" data-label="Request Type" required>
+<option value="">Select one</option>
+<option>General Contact</option>
+<option>Partnership</option>
+<option>Volunteer</option>
+<option>Donation</option>
+<option>Education Support</option>
+<option>Humanitarian Support</option>
+<option>Chaplaincy</option>
+<option>Other</option>
+</select>
+</label>
+<label>Subject *<input name="subject" data-label="Subject" type="text" required></label>
+<label>Message *<textarea name="message" data-label="Message" rows="6" required></textarea></label>
+<label class="checkbox-line"><input name="consent" data-label="Consent" type="checkbox" value="yes" required> I consent to ACICORP Inc. processing my request and contacting me.</label>
+<input type="hidden" name="requested_object" value="Lead / Communication Log / Follow-up Task">
+<input type="hidden" name="initial_status" value="New">
+<button class="btn" type="submit">Send Message</button>
+<p class="form-status" data-form-status aria-live="polite"></p>
+</form>
 </div>
 </section>
 <footer class="site-footer">
@@ -63,6 +99,7 @@
 <p>Restore dignity. Rebuild hope. Stand with Haiti.</p>
 </div>
 </footer>
-<script src="/assets/site.js?v=82"></script>
+<script src="/assets/site.js?v=103"></script>
+<script src="/assets/acicorp-forms.js?v=103"></script>
 </body>
 </html>
