@@ -4,7 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact Options | America Chaplains International Corp Inc.</title>
-<link rel="stylesheet" href="/assets/styles.css?v=114">
+<link rel="stylesheet" href="/assets/styles.css?v=116">
+<style>
+.hidden-contact-form{display:none;}
+.hidden-contact-form.is-visible{display:block;}
+</style>
 </head>
 <body>
 <header class="site-header">
@@ -32,9 +36,9 @@
 <section class="section">
 <div class="container cards">
 <article class="card">
-<h3>Email Communication</h3>
-<p>Open your email interface with ACICORP Inc. already addressed as the recipient.</p>
-<a class="btn" href="mailto:info@acicorpinc.com?subject=Contact%20ACICORP%20Inc.&body=Hello%20ACICORP%20Inc.%2C%0A%0AMy%20name%20is%3A%0AMy%20organization%20or%20role%20is%3A%0AMy%20request%20is%20about%3A%0A%0AMessage%3A%0A">Write an Email</a>
+<h3>Write a Message</h3>
+<p>Open a structured contact form and send your message to ACICORP Inc. for follow-up.</p>
+<a class="btn" href="#message-form" id="show-message-form">Write a Message</a>
 </article>
 <article class="card">
 <h3>WhatsApp Communication</h3>
@@ -46,6 +50,51 @@
 <p>Contact or follow ACICORP Inc. through our Instagram communication channel.</p>
 <a class="btn" href="https://instagram.com/50931000024" target="_blank" rel="noopener">Open Instagram</a>
 </article>
+</div>
+</section>
+<section class="section alt hidden-contact-form" id="message-form">
+<div class="container split">
+<div>
+<p class="eyebrow">Structured Message</p>
+<h2>Write to ACICORP Inc.</h2>
+<p>Please complete this form for partnership, volunteer, donation, education support, humanitarian support, chaplaincy, or general institutional communication.</p>
+<div class="contact-box">
+<p><strong>Human follow-up remains part of the process.</strong></p>
+<p>Your message will be reviewed by ACICORP Inc. for appropriate follow-up.</p>
+</div>
+</div>
+<form class="acicorp-form" data-acicorp-form="contact_request" novalidate>
+<h3>Contact Form</h3>
+<label>Full Name *<input name="full_name" data-label="Full Name" type="text" required></label>
+<div class="form-grid-two">
+<label>Email *<input name="email" data-label="Email" type="email" required></label>
+<label>Phone / WhatsApp<input name="phone" type="tel"></label>
+</div>
+<div class="form-grid-two">
+<label>Country<input name="country" type="text"></label>
+<label>City<input name="city" type="text"></label>
+</div>
+<label>Request Type *
+<select name="request_type" data-label="Request Type" required>
+<option value="">Select one</option>
+<option>General Contact</option>
+<option>Partnership</option>
+<option>Volunteer</option>
+<option>Donation</option>
+<option>Education Support</option>
+<option>Humanitarian Support</option>
+<option>Chaplaincy</option>
+<option>Other</option>
+</select>
+</label>
+<label>Subject *<input name="subject" data-label="Subject" type="text" required></label>
+<label>Message *<textarea name="message" data-label="Message" rows="6" required></textarea></label>
+<label class="checkbox-line"><input name="consent" data-label="Consent" type="checkbox" value="yes" required> I consent to ACICORP Inc. processing my request and contacting me.</label>
+<input type="hidden" name="requested_object" value="Lead / Communication Log / Follow-up Task">
+<input type="hidden" name="initial_status" value="New">
+<button class="btn" type="submit">Send Message</button>
+<p class="form-status" data-form-status aria-live="polite"></p>
+</form>
 </div>
 </section>
 <section class="section alt">
@@ -63,6 +112,19 @@
 <p>Restore dignity. Rebuild hope. Stand with Haiti.</p>
 </div>
 </footer>
-<script src="/assets/site.js?v=114"></script>
+<script src="/assets/site.js?v=116"></script>
+<script src="/assets/acicorp-forms.js?v=103"></script>
+<script>
+(function(){
+  var button = document.getElementById('show-message-form');
+  var formSection = document.getElementById('message-form');
+  if (!button || !formSection) return;
+  button.addEventListener('click', function(event){
+    event.preventDefault();
+    formSection.classList.add('is-visible');
+    formSection.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+})();
+</script>
 </body>
 </html>
