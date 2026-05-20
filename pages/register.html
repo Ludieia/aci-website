@@ -24,6 +24,10 @@
 </header>
 <section class="hero internal-hero">
 <div class="container">
+<p class="eyebrow">Registration & CRM Access</p>
+<h2>Join the mission with clarity, dignity, and responsibility.</h2>
+<p>America Chaplains International Corp Inc. is preparing a structured registration pathway for volunteers, partners, chaplains, local coordinators, donors, and community supporters.</p>
+<a class="btn" href="#chaplain-form">Become a Chaplain</a>
 <p class="eyebrow">CRM / ERP Registration</p>
 <h2>Serving with dignity, compassion, and responsibility.</h2>
 <p>ACICORP Inc. is preparing structured registration and coordination pathways to support professional engagement, volunteer records, institutional communication, and responsible organizational management.</p>
@@ -51,13 +55,72 @@
 </div>
 </div>
 </section>
-<section class="section">
-<div class="container centered narrow">
-<p class="eyebrow">Our Administrative Perspective</p>
-<h2>Mission readiness with human follow-up.</h2>
-<p>ACICORP Inc. sees organized registration as part of a larger commitment to transparency, professionalism, and mission readiness. Current registration requests are coordinated through the official contact desk while the structured system continues to expand.</p>
-<a class="btn" href="mailto:info@acicorpinc.com?subject=Registration%20Support">Register With ACICORP Inc.</a>
-<a class="btn btn-secondary" href="/pages/contact.html">Contact ACICORP Inc.</a>
+<section class="section" id="chaplain-form">
+<div class="container split">
+<div>
+<p class="eyebrow">Secure Application</p>
+<h2>Become a Chaplain</h2>
+<p>This secure form sends your application to Ludie IA for validation, traceability, risk control, and routing to ERPNext / CRM Ludienet.</p>
+<div class="contact-box">
+<p><strong>Important:</strong> submitting this form does not automatically approve, ordain, or activate a chaplain. Human validation remains mandatory.</p>
+<p>Pipeline: Website → Ludie IA → ERPNext / CRM</p>
+</div>
+</div>
+<form class="acicorp-form" data-acicorp-form="become_a_chaplain" novalidate>
+<h3>Chaplain Application</h3>
+<label>Full Name *<input name="full_name" data-label="Full Name" type="text" required></label>
+<div class="form-grid-two">
+<label>First Name<input name="first_name" type="text"></label>
+<label>Last Name<input name="last_name" type="text"></label>
+</div>
+<div class="form-grid-two">
+<label>Email *<input name="email" data-label="Email" type="email" required></label>
+<label>Phone / WhatsApp *<input name="phone" data-label="Phone" type="tel" required></label>
+</div>
+<div class="form-grid-two">
+<label>Country *<input name="country" data-label="Country" type="text" required></label>
+<label>City<input name="city" type="text"></label>
+</div>
+<label>Chaplain Type *
+<select name="chaplain_type" data-label="Chaplain Type" required>
+<option value="">Select one</option>
+<option>Community</option>
+<option>Hospital</option>
+<option>Prison</option>
+<option>Military</option>
+<option>Youth</option>
+<option>School</option>
+<option>International</option>
+<option>Other</option>
+</select>
+</label>
+<label>Training Level
+<select name="training_level">
+<option>None</option>
+<option>Orientation</option>
+<option>Basic</option>
+<option>Intermediate</option>
+<option>Advanced</option>
+<option>Completed</option>
+</select>
+</label>
+<label>Address<textarea name="address" rows="3"></textarea></label>
+<label>Motivation / Notes *<textarea name="motivation" data-label="Motivation" rows="5" required></textarea></label>
+<label class="checkbox-line"><input name="consent" data-label="Consent" type="checkbox" value="yes" required> I consent to ACICORP Inc. reviewing my application and contacting me.</label>
+<input type="hidden" name="requested_object" value="Chaplain Profile">
+<input type="hidden" name="initial_status" value="Submitted">
+<button class="btn" type="submit">Submit Application</button>
+<p class="form-status" data-form-status aria-live="polite"></p>
+</form>
+</div>
+</section>
+<section class="section" id="portal">
+<div class="container">
+<p class="eyebrow">CRM / ERP Portal</p>
+<h2>Digital registration portal coming soon.</h2>
+<p>The official ACICORP Inc. CRM / ERP portal will help organize registrations, members, volunteers, partners, projects, donations, field reports, education support, and community recovery activities.</p>
+<p><strong>Portal link:</strong> Coming soon.</p>
+<a class="btn" href="/pages/contact.html">Request Information</a>
 </div>
 </section>
 <section class="section alt">
@@ -74,6 +137,8 @@
 <p>Restore dignity. Rebuild hope. Stand with Haiti.</p>
 </div>
 </footer>
+<script src="/assets/site.js?v=103"></script>
+<script src="/assets/acicorp-forms.js?v=103"></script>
 <script src="/assets/site.js?v=107"></script>
 </body>
 </html>

@@ -24,6 +24,22 @@
 </header>
 <section class="hero internal-hero">
 <div class="container">
+<p class="eyebrow">Support Our Mission</p>
+<h2>Choose a theme, then confirm your donation securely.</h2>
+<p>Your contribution helps support education, humanitarian response, displaced families, youth initiatives, prison support, AMMI, registrations, and community recovery actions.</p>
+</div>
+</section>
+<section class="section alt" id="donation-themes">
+<div class="container">
+<p class="eyebrow">Donation Themes</p>
+<h2>Select the area you want to support.</h2>
+<div class="cards">
+<article class="card"><h3>Education Support</h3><p>Support children, schools, educational materials, meals, and learning continuity initiatives.</p><a class="btn" href="#donation-confirmation">Confirm Education Donation</a></article>
+<article class="card"><h3>Humanitarian Response</h3><p>Support displaced families, migrants, vulnerable communities, and urgent recovery efforts.</p><a class="btn" href="#donation-confirmation">Confirm Humanitarian Donation</a></article>
+<article class="card"><h3>Displaced Families</h3><p>Help families facing instability, loss of normal community support, and urgent hardship.</p><a class="btn" href="#donation-confirmation">Confirm Family Support</a></article>
+<article class="card"><h3>Prison Support</h3><p>Support dignity-centered accompaniment for vulnerable prisoners and prison outreach.</p><a class="btn" href="#donation-confirmation">Confirm Prison Support</a></article>
+<article class="card"><h3>Youth & Peacebuilding</h3><p>Invest in youth leadership, civic responsibility, values formation, and peacebuilding.</p><a class="btn" href="#donation-confirmation">Confirm Youth Donation</a></article>
+<article class="card"><h3>AMMI / Community Recovery</h3><p>Support Ayiti Merite Miyò, cooperative development, and community recovery initiatives.</p><a class="btn" href="#donation-confirmation">Confirm Recovery Donation</a></article>
 <p class="eyebrow">Donate</p>
 <h2>Serving with dignity, compassion, and responsibility.</h2>
 <p>Supporting ACICORP Inc. means investing in dignified humanitarian action, responsible chaplaincy service, and practical community support in Haiti. Your contribution helps turn concern into structured action for children, families, youth, prisoners, and vulnerable communities.</p>
@@ -41,31 +57,84 @@
 </section>
 <section class="section alt">
 <div class="container">
-<p class="eyebrow">What Your Support Helps Strengthen</p>
-<h2>Mission areas supported through responsible giving.</h2>
+<p class="eyebrow">Payment Information</p>
+<h2>Official payment options</h2>
 <div class="cards">
-<article class="card"><h3>Humanitarian Response</h3><p>Humanitarian response and vulnerable family support.</p></article>
-<article class="card"><h3>Education Support</h3><p>Education support for children and youth.</p></article>
-<article class="card"><h3>Prison Support</h3><p>Prison support and dignity-centered chaplaincy outreach.</p></article>
-<article class="card"><h3>Community Recovery</h3><p>Community recovery and cooperative development initiatives.</p></article>
+<article class="card"><h3>MonCash</h3><p><strong>Number:</strong><br>38105773</p></article>
+<article class="card"><h3>NatCash</h3><p><strong>Number:</strong><br>320496</p></article>
+<article class="card"><h3>Bank Transfer</h3><p><strong>Bank:</strong> Sogebank SA<br><strong>Account Number:</strong> 2116003597<br><strong>Account Name:</strong> Ludienet Bureau de Transfert<br><strong>Swift Code:</strong> SOGHHTPXXX</p></article>
 </div>
 </div>
 </section>
-<section class="section">
-<div class="container centered narrow">
-<p class="eyebrow">A Responsible Invitation</p>
-<h2>Institutional credibility matters.</h2>
-<p>We invite donors, institutions, and friends of the mission to give with confidence and shared responsibility. Our goal is to steward support in a way that reflects seriousness, compassion, and institutional credibility.</p>
-<a class="btn" href="mailto:info@acicorpinc.com?subject=Donation%20Inquiry">Donate</a>
-<a class="btn btn-secondary" href="/pages/contact.html">Contact ACICORP Inc.</a>
+<section class="section alt" id="donation-confirmation">
+<div class="container split">
+<div>
+<p class="eyebrow">Secure Donation Confirmation</p>
+<h2>Confirm your donation.</h2>
+<p>This form securely sends your donation confirmation to Ludie IA, which validates and routes the information to ERPNext / CRM Ludienet.</p>
+<div class="contact-box">
+<p><strong>No payment is validated automatically.</strong></p>
+<p>Finance review remains required before verification.</p>
 </div>
-</section>
-<section class="section alt">
-<div class="container centered narrow">
-<h2>Stand with Haiti through responsible giving.</h2>
-<p>Official donation instructions are shared directly by ACICORP Inc. through the official contact desk to ensure clarity, confirmation, and proper follow-up.</p>
-<a class="btn" href="mailto:info@acicorpinc.com?subject=Support%20Humanitarian%20Response">Support Humanitarian Response</a>
-<a class="btn btn-secondary" href="mailto:info@acicorpinc.com?subject=Support%20Education">Support Education</a>
+</div>
+<form class="acicorp-form" data-acicorp-form="donation_confirmation" novalidate>
+<h3>Donation Confirmation</h3>
+<label>Donor Full Name *<input name="donor_full_name" data-label="Donor Full Name" type="text" required></label>
+<div class="form-grid-two">
+<label>Email<input name="email" type="email"></label>
+<label>Phone / WhatsApp *<input name="phone" data-label="Phone" type="tel" required></label>
+</div>
+<div class="form-grid-two">
+<label>Country<input name="country" type="text"></label>
+<label>City<input name="city" type="text"></label>
+</div>
+<label>Donation Theme *
+<select name="donation_theme" data-label="Donation Theme" required>
+<option value="">Select one</option>
+<option>Education Support</option>
+<option>Humanitarian Response</option>
+<option>Displaced Families</option>
+<option>Prison Support</option>
+<option>Youth & Peacebuilding</option>
+<option>AMMI / Community Recovery</option>
+<option>Chaplaincy Programs</option>
+<option>General Donation</option>
+</select>
+</label>
+<div class="form-grid-two">
+<label>Amount *<input name="amount" data-label="Amount" type="number" min="1" step="0.01" required></label>
+<label>Currency *
+<select name="currency" data-label="Currency" required>
+<option value="">Select one</option>
+<option>USD</option>
+<option>HTG</option>
+<option>DOP</option>
+<option>EUR</option>
+</select>
+</label>
+</div>
+<label>Payment Method *
+<select name="payment_method" data-label="Payment Method" required>
+<option value="">Select one</option>
+<option>MonCash</option>
+<option>NatCash</option>
+<option>Bank Transfer</option>
+<option>Cash</option>
+<option>Zelle</option>
+<option>CashApp</option>
+<option>Credit Card</option>
+<option>Other</option>
+</select>
+</label>
+<label>Transaction Reference *<input name="transaction_reference" data-label="Transaction Reference" type="text" required></label>
+<label>Payment Date *<input name="payment_date" data-label="Payment Date" type="date" required></label>
+<label>Donation Note<textarea name="donation_note" rows="4"></textarea></label>
+<label class="checkbox-line"><input name="consent" data-label="Consent" type="checkbox" value="yes" required> I confirm that the information provided is accurate.</label>
+<input type="hidden" name="requested_object" value="ACICORP Donation">
+<input type="hidden" name="initial_status" value="Submitted">
+<button class="btn" type="submit">Confirm My Donation</button>
+<p class="form-status" data-form-status aria-live="polite"></p>
+</form>
 </div>
 </section>
 <footer class="site-footer">
@@ -75,6 +144,8 @@
 <p>Restore dignity. Rebuild hope. Stand with Haiti.</p>
 </div>
 </footer>
+<script src="/assets/site.js?v=103"></script>
+<script src="/assets/acicorp-forms.js?v=103"></script>
 <script src="/assets/site.js?v=110"></script>
 </body>
 </html>
