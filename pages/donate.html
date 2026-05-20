@@ -4,7 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Donate | America Chaplains International Corp Inc.</title>
-<link rel="stylesheet" href="/assets/styles.css?v=110">
+<link rel="stylesheet" href="/assets/styles.css?v=121">
+<style>
+.hidden-donation-form{display:none;}
+.hidden-donation-form.is-visible{display:block;}
+</style>
 </head>
 <body>
 <header class="site-header">
@@ -25,8 +29,9 @@
 <section class="hero internal-hero">
 <div class="container">
 <p class="eyebrow">Support Our Mission</p>
-<h2>Choose a theme, then confirm your donation securely.</h2>
-<p>Your contribution helps support education, humanitarian response, displaced families, youth initiatives, prison support, AMMI, registrations, and community recovery actions.</p>
+<h2>Give with dignity, confidence, and shared responsibility.</h2>
+<p>Your contribution helps support education, humanitarian response, displaced families, youth initiatives, prison support, AMMI, and community recovery actions in Haiti.</p>
+<a class="btn show-donation-form" href="#donation-confirmation">Confirm a Donation</a>
 </div>
 </section>
 <section class="section alt" id="donation-themes">
@@ -34,22 +39,22 @@
 <p class="eyebrow">Donation Themes</p>
 <h2>Select the area you want to support.</h2>
 <div class="cards">
-<article class="card"><h3>Education Support</h3><p>Support children, schools, educational materials, meals, and learning continuity initiatives.</p><a class="btn" href="#donation-confirmation">Confirm Education Donation</a></article>
-<article class="card"><h3>Humanitarian Response</h3><p>Support displaced families, migrants, vulnerable communities, and urgent recovery efforts.</p><a class="btn" href="#donation-confirmation">Confirm Humanitarian Donation</a></article>
-<article class="card"><h3>Displaced Families</h3><p>Help families facing instability, loss of normal community support, and urgent hardship.</p><a class="btn" href="#donation-confirmation">Confirm Family Support</a></article>
-<article class="card"><h3>Prison Support</h3><p>Support dignity-centered accompaniment for vulnerable prisoners and prison outreach.</p><a class="btn" href="#donation-confirmation">Confirm Prison Support</a></article>
-<article class="card"><h3>Youth & Peacebuilding</h3><p>Invest in youth leadership, civic responsibility, values formation, and peacebuilding.</p><a class="btn" href="#donation-confirmation">Confirm Youth Donation</a></article>
-<article class="card"><h3>AMMI / Community Recovery</h3><p>Support Ayiti Merite Miyò, cooperative development, and community recovery initiatives.</p><a class="btn" href="#donation-confirmation">Confirm Recovery Donation</a></article>
-<p class="eyebrow">Donate</p>
-<h2>Serving with dignity, compassion, and responsibility.</h2>
-<p>Supporting ACICORP Inc. means investing in dignified humanitarian action, responsible chaplaincy service, and practical community support in Haiti. Your contribution helps turn concern into structured action for children, families, youth, prisoners, and vulnerable communities.</p>
+<article class="card"><h3>Education Support</h3><p>Support children, schools, educational materials, meals, and learning continuity initiatives.</p><a class="btn show-donation-form" href="#donation-confirmation">Support Education</a></article>
+<article class="card"><h3>Humanitarian Response</h3><p>Support displaced families, vulnerable communities, and urgent recovery efforts.</p><a class="btn show-donation-form" href="#donation-confirmation">Support Humanitarian Work</a></article>
+<article class="card"><h3>Displaced Families</h3><p>Help families facing instability, loss of normal community support, and urgent hardship.</p><a class="btn show-donation-form" href="#donation-confirmation">Support Families</a></article>
+<article class="card"><h3>Prison Support</h3><p>Support dignity-centered accompaniment for vulnerable prisoners and prison outreach.</p><a class="btn show-donation-form" href="#donation-confirmation">Support Prison Outreach</a></article>
+<article class="card"><h3>Youth & Peacebuilding</h3><p>Invest in youth leadership, civic responsibility, values formation, and peacebuilding.</p><a class="btn show-donation-form" href="#donation-confirmation">Support Youth</a></article>
+<article class="card"><h3>AMMI / Community Recovery</h3><p>Support Ayiti Merite Miyò, cooperative development, and community recovery initiatives.</p><a class="btn show-donation-form" href="#donation-confirmation">Support Recovery</a></article>
+</div>
 </div>
 </section>
 <section class="section">
 <div class="container split">
 <div>
-<h2>Give with seriousness, confidence, and shared responsibility.</h2>
-<p>We do not present Haiti only through crisis. We present Haiti as a resilient nation whose people deserve serious partnership, human respect, and credible support. Donations help strengthen programs that respond to urgent needs while protecting dignity and encouraging recovery.</p>
+<p class="eyebrow">Responsible Giving</p>
+<h2>Supporting hope through structured action.</h2>
+<p>Supporting ACICORP Inc. means investing in dignified humanitarian action, responsible chaplaincy service, and practical community support in Haiti.</p>
+<p>We do not present Haiti only through crisis. We present Haiti as a resilient nation whose people deserve serious partnership, human respect, and credible support.</p>
 <p>Every act of giving becomes part of a larger commitment to hope, responsibility, and human value. Restore dignity. Rebuild hope. Stand with Haiti.</p>
 </div>
 <div class="photo-frame photo-one"><span>Hope • Responsibility • Human Value</span></div>
@@ -66,16 +71,12 @@
 </div>
 </div>
 </section>
-<section class="section alt" id="donation-confirmation">
+<section class="section alt hidden-donation-form" id="donation-confirmation">
 <div class="container split">
 <div>
-<p class="eyebrow">Secure Donation Confirmation</p>
+<p class="eyebrow">Donation Confirmation</p>
 <h2>Confirm your donation.</h2>
-<p>This form securely sends your donation confirmation to Ludie IA, which validates and routes the information to ERPNext / CRM Ludienet.</p>
-<div class="contact-box">
-<p><strong>No payment is validated automatically.</strong></p>
-<p>Finance review remains required before verification.</p>
-</div>
+<p>Please complete this form after making a contribution so ACICORP Inc. can record your support and follow up responsibly.</p>
 </div>
 <form class="acicorp-form" data-acicorp-form="donation_confirmation" novalidate>
 <h3>Donation Confirmation</h3>
@@ -144,8 +145,21 @@
 <p>Restore dignity. Rebuild hope. Stand with Haiti.</p>
 </div>
 </footer>
-<script src="/assets/site.js?v=103"></script>
+<script src="/assets/site.js?v=121"></script>
 <script src="/assets/acicorp-forms.js?v=103"></script>
-<script src="/assets/site.js?v=110"></script>
+<script>
+(function(){
+  var buttons = document.querySelectorAll('.show-donation-form');
+  var formSection = document.getElementById('donation-confirmation');
+  if (!buttons.length || !formSection) return;
+  buttons.forEach(function(button){
+    button.addEventListener('click', function(event){
+      event.preventDefault();
+      formSection.classList.add('is-visible');
+      formSection.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+})();
+</script>
 </body>
 </html>
