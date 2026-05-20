@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Register | America Chaplains International Corp Inc.</title>
-<link rel="stylesheet" href="/assets/styles.css?v=60">
+<link rel="stylesheet" href="/assets/styles.css?v=103">
 </head>
 <body>
 <header class="site-header">
@@ -24,7 +24,7 @@
 <p class="eyebrow">Registration & CRM Access</p>
 <h2>Join the mission with clarity, dignity, and responsibility.</h2>
 <p>America Chaplains International Corp Inc. is preparing a structured registration pathway for volunteers, partners, chaplains, local coordinators, donors, and community supporters.</p>
-<a class="btn" href="#plans">View Registration Plans</a>
+<a class="btn" href="#chaplain-form">Become a Chaplain</a>
 </div>
 </section>
 <section id="plans" class="section alt">
@@ -39,6 +39,65 @@
 <article class="card"><h3>Community Coordinator</h3><p>For local representatives and departmental contacts who support community identification, reporting, and coordination.</p></article>
 <article class="card"><h3>Professional Support</h3><p>For lawyers, teachers, health workers, social workers, communicators, technicians, and professionals willing to contribute skills.</p></article>
 </div>
+</div>
+</section>
+<section class="section" id="chaplain-form">
+<div class="container split">
+<div>
+<p class="eyebrow">Secure Application</p>
+<h2>Become a Chaplain</h2>
+<p>This secure form sends your application to Ludie IA for validation, traceability, risk control, and routing to ERPNext / CRM Ludienet.</p>
+<div class="contact-box">
+<p><strong>Important:</strong> submitting this form does not automatically approve, ordain, or activate a chaplain. Human validation remains mandatory.</p>
+<p>Pipeline: Website → Ludie IA → ERPNext / CRM</p>
+</div>
+</div>
+<form class="acicorp-form" data-acicorp-form="become_a_chaplain" novalidate>
+<h3>Chaplain Application</h3>
+<label>Full Name *<input name="full_name" data-label="Full Name" type="text" required></label>
+<div class="form-grid-two">
+<label>First Name<input name="first_name" type="text"></label>
+<label>Last Name<input name="last_name" type="text"></label>
+</div>
+<div class="form-grid-two">
+<label>Email *<input name="email" data-label="Email" type="email" required></label>
+<label>Phone / WhatsApp *<input name="phone" data-label="Phone" type="tel" required></label>
+</div>
+<div class="form-grid-two">
+<label>Country *<input name="country" data-label="Country" type="text" required></label>
+<label>City<input name="city" type="text"></label>
+</div>
+<label>Chaplain Type *
+<select name="chaplain_type" data-label="Chaplain Type" required>
+<option value="">Select one</option>
+<option>Community</option>
+<option>Hospital</option>
+<option>Prison</option>
+<option>Military</option>
+<option>Youth</option>
+<option>School</option>
+<option>International</option>
+<option>Other</option>
+</select>
+</label>
+<label>Training Level
+<select name="training_level">
+<option>None</option>
+<option>Orientation</option>
+<option>Basic</option>
+<option>Intermediate</option>
+<option>Advanced</option>
+<option>Completed</option>
+</select>
+</label>
+<label>Address<textarea name="address" rows="3"></textarea></label>
+<label>Motivation / Notes *<textarea name="motivation" data-label="Motivation" rows="5" required></textarea></label>
+<label class="checkbox-line"><input name="consent" data-label="Consent" type="checkbox" value="yes" required> I consent to ACICORP Inc. reviewing my application and contacting me.</label>
+<input type="hidden" name="requested_object" value="Chaplain Profile">
+<input type="hidden" name="initial_status" value="Submitted">
+<button class="btn" type="submit">Submit Application</button>
+<p class="form-status" data-form-status aria-live="polite"></p>
+</form>
 </div>
 </section>
 <section class="section" id="portal">
@@ -64,6 +123,7 @@
 <p>Restore dignity. Rebuild hope. Stand with Haiti.</p>
 </div>
 </footer>
-<script src="/assets/site.js?v=60"></script>
+<script src="/assets/site.js?v=103"></script>
+<script src="/assets/acicorp-forms.js?v=103"></script>
 </body>
 </html>
