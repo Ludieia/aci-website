@@ -1,11 +1,4 @@
 (function () {
-  'use strict';
-
-  window.ACICORP_FORMS_CONFIG = window.ACICORP_FORMS_CONFIG || {
-    endpoint: 'http://178.156.210.71:3000/agent-task',
-    environment: 'test'
-  };
-
   var navHtml = [
     '<a href="/index.html">Home</a>',
     '<a href="/pages/about.html">About</a>',
@@ -37,5 +30,5 @@
     normalizeNavigation();
   }
 
-  console.log('ACI website loaded - normalized navigation and Ludie IA forms config v111');
+  console.log('ACI website loaded - normalized navigation v106');
 })();
