@@ -169,7 +169,7 @@
 </div>
 </footer>
 <script src="/assets/site.js?v=121"></script>
-<script src="/assets/acicorp-forms.js?v=103"></script>
+<script src="/assets/acicorp-forms.js?v=122"></script>
 <script>
 (function(){
   var buttons = document.querySelectorAll('.show-chaplain-form');
@@ -198,7 +198,7 @@
     status.textContent = 'Sending your question...';
     answerBox.hidden = true;
 
-    fetch('http://178.156.210.71:3000/agent-task', {
+    fetch('http://178.156.210.71:3000/signal', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
