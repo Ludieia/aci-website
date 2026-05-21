@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var DEFAULT_ENDPOINT = 'http://178.156.210.71:3000/agent-task';
+  var DEFAULT_ENDPOINT = 'http://178.156.210.71:3000/signal';
   var config = window.ACICORP_FORMS_CONFIG || {};
   var endpoint = config.endpoint || DEFAULT_ENDPOINT;
   var environment = config.environment || 'test';
