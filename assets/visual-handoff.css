@@ -1,0 +1,46 @@
+/* ACICORP Visual Handoff Integration
+   Source: approved ACICORP visual handoff for priority lots 1, 2 and 3.
+   Purpose: keep visual image architecture independent from the main legacy stylesheet.
+*/
+
+.visual-hero{background-image:linear-gradient(120deg,rgba(6,39,95,.86),rgba(11,61,145,.58)),var(--hero-image);background-size:cover;background-position:center;color:#fff;}
+.visual-hero.internal-hero{color:#fff;}
+.visual-hero.internal-hero h2,.visual-hero.internal-hero p{color:#fff;}
+.visual-hero .eyebrow{color:#f8e6a0;}
+
+.visual-hero-home{--hero-image:url('/assets/images/home/home-hero-community-support-desktop.webp');}
+.visual-hero-about{--hero-image:url('/assets/images/about/about-hero-leadership-field-visit-desktop.webp');}
+.visual-hero-programs{--hero-image:url('/assets/images/programs/programs-hero-multi-sector-community-impact.webp');}
+.visual-hero-donate{--hero-image:url('/assets/images/donate/donate-hero-trust-and-impact-desktop.webp');}
+.visual-hero-contact{--hero-image:url('/assets/images/contact/contact-hero-team-welcome-desk.webp');}
+.visual-hero-chaplaincy{--hero-image:url('/assets/images/chaplaincy/chaplaincy-hero-pastoral-presence-desktop.webp');}
+.visual-hero-volunteer{--hero-image:url('/assets/images/volunteer/volunteer-hero-community-service-desktop.webp');}
+.visual-hero-ammi{--hero-image:url('/assets/images/ammi/ammi-hero-citizen-voice-desktop.webp');}
+.visual-hero-education{--hero-image:url('/assets/images/education/education-hero-learning-support-desktop.webp');}
+.visual-hero-human-rights{--hero-image:url('/assets/images/human-rights/human-rights-hero-dignity-and-support-desktop.webp');}
+.visual-hero-community-recovery{--hero-image:url('/assets/images/community-recovery/community-recovery-hero-local-rebuilding-desktop.webp');}
+.visual-hero-youth-peacebuilding{--hero-image:url('/assets/images/youth-peacebuilding/youth-peacebuilding-hero-young-leadership-desktop.webp');}
+.visual-hero-blog{--hero-image:url('/assets/images/blog/blog-hero-field-stories-desktop.webp');}
+
+.visual-frame{position:relative;margin:0;border-radius:32px;min-height:340px;overflow:hidden;box-shadow:var(--shadow);background:linear-gradient(135deg,var(--blue),var(--blue-dark));}
+.visual-frame img{width:100%;height:100%;min-height:340px;object-fit:cover;object-position:center;display:block;}
+.visual-frame figcaption{position:absolute;left:20px;bottom:20px;padding:10px 14px;border-radius:999px;background:rgba(6,39,95,.82);color:#fff;font-weight:900;}
+.visual-frame.portrait img{aspect-ratio:4/5;}
+.visual-frame.section-img img{aspect-ratio:3/2;}
+.visual-note{font-size:.86rem;color:var(--muted);margin-top:10px;}
+
+@media(max-width:720px){
+  .visual-frame,.visual-frame img{min-height:260px;}
+  .visual-hero-home{--hero-image:url('/assets/images/home/home-hero-community-support-mobile.webp');}
+  .visual-hero-about{--hero-image:url('/assets/images/about/about-hero-leadership-field-visit-mobile.webp');}
+  .visual-hero-programs{--hero-image:url('/assets/images/programs/programs-hero-multi-sector-community-impact-mobile.webp');}
+  .visual-hero-donate{--hero-image:url('/assets/images/donate/donate-hero-trust-and-impact-mobile.webp');}
+  .visual-hero-chaplaincy{--hero-image:url('/assets/images/chaplaincy/chaplaincy-hero-pastoral-presence-mobile.webp');}
+  .visual-hero-volunteer{--hero-image:url('/assets/images/volunteer/volunteer-hero-community-service-mobile.webp');}
+  .visual-hero-ammi{--hero-image:url('/assets/images/ammi/ammi-hero-citizen-voice-mobile.webp');}
+  .visual-hero-education{--hero-image:url('/assets/images/education/education-hero-learning-support-mobile.webp');}
+  .visual-hero-human-rights{--hero-image:url('/assets/images/human-rights/human-rights-hero-dignity-and-support-mobile.webp');}
+  .visual-hero-community-recovery{--hero-image:url('/assets/images/community-recovery/community-recovery-hero-local-rebuilding-mobile.webp');}
+  .visual-hero-youth-peacebuilding{--hero-image:url('/assets/images/youth-peacebuilding/youth-peacebuilding-hero-young-leadership-mobile.webp');}
+  .visual-hero-blog{--hero-image:url('/assets/images/blog/blog-hero-field-stories-mobile.webp');}
+}
