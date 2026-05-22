@@ -23,14 +23,19 @@
 .visual-hero-blog{--hero-image:url('/assets/images/blog/blog-hero-field-stories-desktop.webp');}
 
 .visual-frame{position:relative;margin:0;border-radius:32px;min-height:340px;overflow:hidden;box-shadow:var(--shadow);background:linear-gradient(135deg,var(--blue),var(--blue-dark));}
-.visual-frame img{width:100%;height:100%;min-height:340px;object-fit:cover;object-position:center;display:block;}
-.visual-frame figcaption{position:absolute;left:20px;bottom:20px;padding:10px 14px;border-radius:999px;background:rgba(6,39,95,.82);color:#fff;font-weight:900;}
+.visual-frame:before{content:"ACICORP VISUAL PREVIEW";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;color:rgba(255,255,255,.72);font-size:clamp(1.2rem,3vw,2.5rem);font-weight:900;letter-spacing:.12em;background:linear-gradient(135deg,rgba(11,61,145,.94),rgba(47,133,90,.72));z-index:0;}
+.visual-frame:after{content:"WebP image slot ready";position:absolute;right:18px;top:18px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.18);color:#fff;font-weight:800;font-size:.78rem;z-index:1;}
+.visual-frame img{width:100%;height:100%;min-height:340px;object-fit:cover;object-position:center;display:block;position:relative;z-index:1;}
+.visual-frame img[src$='.webp']{background:transparent;}
+.visual-frame img[src$='.webp']:not([complete]){opacity:0;}
+.visual-frame figcaption{position:absolute;left:20px;bottom:20px;padding:10px 14px;border-radius:999px;background:rgba(6,39,95,.82);color:#fff;font-weight:900;z-index:2;}
 .visual-frame.portrait img{aspect-ratio:4/5;}
 .visual-frame.section-img img{aspect-ratio:3/2;}
 .visual-note{font-size:.86rem;color:var(--muted);margin-top:10px;}
 
 @media(max-width:720px){
   .visual-frame,.visual-frame img{min-height:260px;}
+  .visual-frame:before{font-size:1.1rem;letter-spacing:.08em;}
   .visual-hero-home{--hero-image:url('/assets/images/home/home-hero-community-support-mobile.webp');}
   .visual-hero-about{--hero-image:url('/assets/images/about/about-hero-leadership-field-visit-mobile.webp');}
   .visual-hero-programs{--hero-image:url('/assets/images/programs/programs-hero-multi-sector-community-impact-mobile.webp');}
