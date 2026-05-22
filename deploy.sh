@@ -1,5 +1,28 @@
-<!doctype html>
-<html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Contact | America Chaplains International Corp Inc.</title><link rel="stylesheet" href="../assets/styles.css"></head>
-<body><main class="section"><div class="container narrow"><p class="eyebrow">America Chaplains International Corp Inc.</p><h1>Contact</h1><p>This page is prepared for the next deployment phase. Content will be expanded with approved institutional text.</p><p><a class="btn btn-secondary" href="../index.html">Back to Home</a></p></div></main></body>
-</html>
+#!/usr/bin/env bash
+set -e
+
+ROOT_DIR="."
+BUILD_DIR="docs"
+
+echo "Preparing ACICORP static site in docs/"
+
+mkdir -p "$BUILD_DIR"
+mkdir -p "$BUILD_DIR/pages"
+mkdir -p "$BUILD_DIR/assets"
+
+cp index.html "$BUILD_DIR/index.html"
+cp about.html "$BUILD_DIR/about.html"
+cp contact.html "$BUILD_DIR/contact.html"
+cp donate.html "$BUILD_DIR/donate.html"
+cp programs.html "$BUILD_DIR/programs.html"
+
+cp -R pages/. "$BUILD_DIR/pages/"
+cp -R assets/. "$BUILD_DIR/assets/"
+
+if [ -f robots.txt ]; then cp robots.txt "$BUILD_DIR/robots.txt"; fi
+if [ -f sitemap.xml ]; then cp sitemap.xml "$BUILD_DIR/sitemap.xml"; fi
+if [ -f README.md ]; then cp README.md "$BUILD_DIR/README.md"; fi
+
+touch "$BUILD_DIR/.nojekyll"
+
+echo "ACICORP build ready in docs/"
