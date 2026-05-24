@@ -32,6 +32,9 @@
 .visual-frame.portrait img{aspect-ratio:4/5;}
 .visual-frame.section-img img{aspect-ratio:3/2;}
 .visual-note{font-size:.86rem;color:var(--muted);margin-top:10px;}
+.section-visual{margin-top:24px;}
+.section-visual img{width:100%;border-radius:20px;object-fit:cover;box-shadow:0 12px 30px rgba(0,0,0,.08);display:block;}
+.section-visual figcaption{margin-top:10px;color:var(--muted);font-size:.9rem;font-weight:700;}
 
 @media(max-width:720px){
   .visual-frame,.visual-frame img{min-height:260px;}
