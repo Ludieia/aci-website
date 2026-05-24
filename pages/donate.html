@@ -9,6 +9,11 @@
 <link rel="stylesheet" href="/assets/visual-handoff.css?v=130">
 <script defer src="/assets/site.js?v=122"></script>
 <script defer src="/assets/acicorp-forms.js?v=103"></script>
+<style>
+#donation-confirmation{display:none;}
+#donation-confirmation.is-visible{display:block;}
+.donation-form-actions{margin-top:24px;}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -35,7 +40,7 @@
 <h2>Humanitarian support guided by dignity and responsibility.</h2>
 <p>Your support helps strengthen education continuity, humanitarian response, displaced family assistance, youth initiatives, prison outreach, AMMI, and community recovery action in Haiti.</p>
 <a class="btn" href="#payment-options">Give Now</a>
-<a class="btn btn-secondary" href="#donation-confirmation">Confirm a Contribution</a>
+<a class="btn btn-secondary show-donation-form" href="#donation-confirmation">Confirm a Contribution</a>
 </div>
 </div>
 </section>
@@ -60,6 +65,7 @@
 <h2>ACICORP seeks serious partnership, not temporary sympathy.</h2>
 <p>Every donation contributes to a broader commitment to human dignity, recovery, education, and constructive national renewal. We aim to use support with seriousness, transparency, and community-centered discipline.</p>
 <p>Haiti deserves more than emotional reaction. Haiti deserves respectful engagement, practical support, and long-term solidarity that strengthens resilience without reducing people to their suffering.</p>
+<div class="donation-form-actions"><a class="btn show-donation-form" href="#donation-confirmation">Open Donation Confirmation Form</a></div>
 </div>
 <div>
 <figure class="visual-frame section-img">
@@ -118,5 +124,19 @@
 </section>
 </main>
 <footer class="site-footer"><div class="container"><p><strong>America Chaplains International Corp Inc.</strong></p><p>Restore dignity. Rebuild hope. Stand with Haiti.</p><p>Email: <a href="mailto:info@acicorpinc.com">info@acicorpinc.com</a></p></div></footer>
+<script>
+(function(){
+  var buttons = document.querySelectorAll('.show-donation-form');
+  var formSection = document.getElementById('donation-confirmation');
+  if (!buttons.length || !formSection) return;
+  buttons.forEach(function(button){
+    button.addEventListener('click', function(event){
+      event.preventDefault();
+      formSection.classList.add('is-visible');
+      formSection.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+})();
+</script>
 </body>
 </html>
