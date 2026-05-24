@@ -9,6 +9,8 @@
 - About institutional coordination image integrated
 - GitHub handoff workflow activated
 - GitHub push access verified
+- root contact redirect repaired
+- workflow reconnection validated directly through GitHub
 
 ## In Progress
 - Partner support image integration
@@ -17,6 +19,7 @@
 - Contact support image integration
 - About team portrait cleanup and replacement
 - GitHub-centered asset workflow migration
+- responsive visual QA
 
 ## Pending
 - final WebP upload verification
